@@ -28,7 +28,7 @@ function App() {
             const pdf = await pdfjsLib.getDocument(typedArray).promise;
             const page = await pdf.getPage(1);
 
-            const viewport = page.getViewport({ scale: 1.3 });
+            const viewport = page.getViewport({ scale: 1.5 });
             const canvas = document.createElement('canvas');
             const padding = 10;
             const shadowOffset = 10;
@@ -56,7 +56,7 @@ function App() {
     };
 
     const applyGreyScannerEffect = (canvas, ctx) => {
-        ctx.fillStyle = 'rgba(192, 192, 192, 0.05)';
+        ctx.fillStyle = 'rgba(192, 192, 192, 0.1)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
 
