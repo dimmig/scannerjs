@@ -28,7 +28,7 @@ function App() {
             const pdf = await pdfjsLib.getDocument(typedArray).promise;
             const page = await pdf.getPage(1);
 
-            const viewport = page.getViewport({ scale: 1.5 });
+            const viewport = page.getViewport({ scale: 1.3 });
             const canvas = document.createElement('canvas');
             const padding = 10;
             const shadowOffset = 10;
