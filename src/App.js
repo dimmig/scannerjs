@@ -134,7 +134,7 @@ function App() {
 
         img.src = processedImage;
         img.onload = () => {
-            const imgWidth = 595 / 1.2;
+            const imgWidth = 595 / 1.1;
             const imgHeight = (img.height * imgWidth) / img.width;
 
             pdf.addImage(background, 'PNG', 0, 0, 595, 842);
