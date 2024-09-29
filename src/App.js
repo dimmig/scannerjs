@@ -33,30 +33,33 @@ function App() {
             const padding = 10;
             const shadowOffset = 10;
 
-            canvas.width = viewport.width;
-            canvas.height = viewport.height;
-            canvas.width += 2 * padding;
-            canvas.height += 2 * padding + shadowOffset;
+            canvas.width = viewport.width + 2 * padding;
+            canvas.height = viewport.height + 2 * padding + shadowOffset;
 
             const ctx = canvas.getContext('2d');
-            ctx.fillStyle = '#e0e0e0';
-            ctx.fillRect(padding + shadowOffset, padding + shadowOffset, viewport.width/2, viewport.height/2);
 
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(padding, padding, viewport.width/2, viewport.height/2);
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(padding + shadowOffset, padding + shadowOffset, viewport.width, viewport.height);
+            ctx.fillRect(padding, padding, viewport.width, viewport.height);
 
             await page.render({
                 canvasContext: ctx,
                 viewport: viewport
             }).promise;
 
-            applyImageProcessing(canvas, ctx);
+            applyGreyScannerEffect(canvas, ctx);
 
             setProcessedImage(canvas.toDataURL());
         };
 
         reader.readAsArrayBuffer(file);
     };
+
+    const applyGreyScannerEffect = (canvas, ctx) => {
+        ctx.fillStyle = 'rgba(192, 192, 192, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    };
+
 
     const processImageFile = (file) => {
         const reader = new FileReader();
