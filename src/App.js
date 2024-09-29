@@ -142,11 +142,11 @@ function App() {
             const xMargin = 30;
             const yTransform = 40;
 
-            const shadowXOffset = xMargin + 1.1;
-            const shadowYOffset = yTransform + 1.1;
+            const shadowXOffset = xMargin+2;
+            const shadowYOffset = yTransform+2;
             pdf.setFillColor(50, 50, 50);
             pdf.setDrawColor(50, 50, 50);
-            pdf.setGState(pdf.GState({ opacity: 0.1 }));
+            pdf.setGState(pdf.GState({ opacity: 0.02 }));
 
             pdf.rect(shadowXOffset, shadowYOffset, imgWidth, imgHeight, 'F');
 
